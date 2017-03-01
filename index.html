@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="shortcut icon" href="http://designshack.net/favicon.ico">
+  <link rel="icon" href="http://designshack.net/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+</head>
+
+<body>
+
+  <div id="w">
+    <div id="content" class="clearfix">
+      <div id="userphoto"><img src="images/avatar.png" alt="default avatar"></div>
+
+      <nav id="profiletabs">
+        <ul class="clearfix">
+          <li><a href="#activity">Projects</a></li>
+          <li><a href="#settings">Settings</a></li>
+        </ul>
+      </nav>
+
+
+      <section id="activity" class="hidden">
+        <p>Most recent actions:</p>
+
+        <p class="activity">@10:15PM - Submitted a news article</p>
+
+        <p class="activity">@9:50PM - Submitted a news article</p>
+
+        <p class="activity">@8:15PM - Posted a comment</p>
+
+        <p class="activity">@4:30PM - Added <strong>someusername</strong> as a friend</p>
+
+        <p class="activity">@12:30PM - Submitted a news article</p>
+      </section>
+
+      <section id="settings" class="hidden">
+        <p>Edit your user settings:</p>
+
+        <p class="setting"><span>E-mail Address <img src="images/edit.png" alt="*Edit*"></span> lolno@gmail.com</p>
+
+        <p class="setting"><span>Language <img src="images/edit.png" alt="*Edit*"></span> JavaScript</p>
+
+        <p class="setting"><span>Designation<img src="images/edit.png" alt="*Edit*"></span> Employee</p>
+
+        <p class="setting"><span>Employee Id <img src="images/edit.png" alt="*Edit*"></span> 1</p>
+
+        <p class="setting"><span>Phone Number<img src="images/edit.png" alt="*Edit*"></span>9893101231</p>
+      </section>
+    </div><!-- @end #content -->
+  </div><!-- @end #w -->
+<script type="text/javascript">
+$(function(){
+  $('#profiletabs ul li a').on('click', function(e){
+    e.preventDefault();
+    var newcontent = $(this).attr('href');
+
+    $('#profiletabs ul li a').removeClass('sel');
+    $(this).addClass('sel');
+
+    $('#content section').each(function(){
+      if(!$(this).hasClass('hidden')) { $(this).addClass('hidden'); }
+    });
+
+    $(newcontent).removeClass('hidden');
+  });
+});
+</script>
+</body>
+</html>
